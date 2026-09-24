@@ -1,0 +1,16 @@
+[server]
+maxUploadSize = 20          # MB - same limit as pdf_reader.MAX_BYTES
+
+[client]
+toolbarMode = "minimal"     # hide the "Deploy" button and developer menu
+
+[browser]
+gatherUsageStats = false
+
+[theme]
+base = "light"
+primaryColor = "#4F46E5"
+backgroundColor = "#FFFFFF"
+secondaryBackgroundColor = "#F7F7F8"
+textColor = "#1F2328"
+font = "sans serif"
