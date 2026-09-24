@@ -308,10 +308,10 @@ muse-spark-research-agent/
 
 ---
 
-## Copyright
+## License
 
-Copyright © 2026 Raj Kumar ([@rajkumar898](https://github.com/rajkumar898)). **All rights reserved.**
+This project is released under the [MIT License](LICENSE). Copyright © 2026 Raj Kumar ([@rajkumar898](https://github.com/rajkumar898)).
 
-No license is granted (see [`LICENSE`](LICENSE)). You may view this repository on GitHub, but copying, modifying, redistributing or reusing the code, slides or screenshots requires written permission from the author.
+You are free to use, copy, modify and share the code, slides and screenshots, including for teaching, as long as you keep the copyright notice and the license text. The software is provided "as is", without warranty.
 
 "Meta", "Muse" and "Muse Spark" are trademarks of Meta Platforms, Inc. This project is not affiliated with or endorsed by Meta.
