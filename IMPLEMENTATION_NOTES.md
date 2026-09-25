@@ -104,7 +104,7 @@ streamlit 1.64.0 · openai 3.19.2 · python-dotenv 1.2.3 · httpx 0.28.1 · pypd
 ## 7. Test results (24 Sep 2026)
 
 ```
-pytest -q        → 123 passed, 2 skipped (live tests; RUN_LIVE_TESTS not set) in 0.8 s
+pytest -q        → 126 passed, 2 skipped (live tests; RUN_LIVE_TESTS not set) in 0.8 s
 ```
 
 **Final validation (mock model, live paper search):**

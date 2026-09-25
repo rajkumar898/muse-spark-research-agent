@@ -108,6 +108,18 @@ Open **http://localhost:8501** in your browser. Stop the app with **Ctrl+C** in 
 >
 > With a real API key, Muse Spark understands any wording.
 
+### Terminal version (no dashboard)
+
+The same agent, tools and approval step, printed in the terminal:
+
+```bash
+python cli.py "Calculate the percentage increase from 100 to 125."
+python cli.py "Find recent papers about physics-informed solar power forecasting and identify the main research gaps."
+#   → shows the steps and sources, then asks: Approve writing the report? [y/N]
+python cli.py --mode basic "Calculate the percentage increase from 100 to 125."     # modes: agent | tool | basic
+python cli.py --mode tool --pdf docs/sample_paper.pdf "What dataset and metrics does this paper use?"
+```
+
 ![What the agent did, step by step](docs/images/steps.png)
 
 ![The approved report](docs/images/report.png)
@@ -227,7 +239,7 @@ Detailed API facts (endpoint, request format, tool-calling format, what was veri
 ## 6. Tests
 
 ```bash
-pytest -q        # 123 passed, 2 skipped: no network, no Meta API calls
+pytest -q        # 126 passed, 2 skipped: no network, no Meta API calls
 ```
 
 | File | Covers |
@@ -238,6 +250,7 @@ pytest -q        # 123 passed, 2 skipped: no network, no Meta API calls
 | `test_pdf.py` | Extraction from a generated PDF, chunk overlap, relevance, file-name sanitising, non-PDF, >20 MB, encrypted, image-only |
 | `test_agent.py` | Reaches `WAITING_APPROVAL`, reruns don't re-call the model, approve writes the report, reject stops, `MAX_STEPS`, one-round limit in tool mode, API error → `ERROR` |
 | `test_meta_client.py` | Response parsing, request format, 401/403/404/402/400/region errors, 429 retry, timeout, key never in messages, mock fallback, what the mock understands |
+| `test_cli.py` | Terminal version: calculation, PDF excerpt shown, missing PDF rejected |
 | `test_live.py` | Real API text and tool call (skipped unless `RUN_LIVE_TESTS=1`) |
 
 ---
@@ -273,10 +286,11 @@ muse-spark-research-agent/
 ├── report_generator.py     # cited Markdown report
 ├── prompts.py              # instructions for each mode
 ├── config.py               # settings from .env
+├── cli.py                  # terminal version (no dashboard)
 ├── requirements.txt
 ├── .env.example
 ├── .streamlit/config.toml  # theme, 20 MB upload limit
-├── tests/                  # 123 offline tests + 2 live tests
+├── tests/                  # 126 offline tests + 2 live tests
 ├── slides/                 # step-by-step lecture deck (.pptx)
 ├── docs/images/            # screenshots used in this README
 ├── uploads/                # uploaded PDFs (git-ignored)
